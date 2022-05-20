@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 public class PacienteDTO {
 
 	private Integer idPaciente;
-
+// comentario de MACA
 	@NotEmpty
 	@Size(min = 3, message = "{nombres.size}")
 	private String nombres;
