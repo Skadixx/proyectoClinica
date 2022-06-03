@@ -15,7 +15,6 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -32,8 +31,8 @@ import com.proyecto.clinica.modelos.Paciente;
 import com.proyecto.clinica.servicio.IPacienteServicio;
 
 @RestController
-@RequestMapping("/pacientes")
-@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/paciente")
+//@CrossOrigin(origins = "http://localhost:4200")
 public class PacienteControlador {
 	// url normalmente sustantivo en plural
 
@@ -73,7 +72,7 @@ public class PacienteControlador {
 //	public ResponseEntity<Paciente> listarPorId(@PathVariable Integer id) throws Exception {
 //		return new ResponseEntity<>(servicio.listarPorId(id), HttpStatus.OK);
 //	}
-	// SI LLEVARA DIAMANTES ESTARÍA TIPADO EN OBJECT Y NOSOTROS NO QUEREMOS ESO
+	// SI LLEVARA DIAMANTES ESTARÃ�A TIPADO EN OBJECT Y NOSOTROS NO QUEREMOS ESO
 
 //	@GetMapping("/{id}")
 //	public ResponseEntity<PacienteDTO> listarPorId(@PathVariable Integer id) throws Exception {
@@ -83,7 +82,7 @@ public class PacienteControlador {
 //		return new ResponseEntity<>(pacientedto, HttpStatus.OK);
 //	}
 
-	// SI NO EXISTE EL OBJETO EN LA BASE DE DATOS RETORNARÁ UNA EXCEPCIÓN
+	// SI NO EXISTE EL OBJETO EN LA BASE DE DATOS RETORNARÃ� UNA EXCEPCIÃ“N
 	@GetMapping("/{id}")
 	public ResponseEntity<PacienteDTO> listarPorId(@PathVariable Integer id) throws Exception {
 		Paciente objeto = servicio.listarPorId(id);
@@ -126,19 +125,17 @@ public class PacienteControlador {
 //	public ResponseEntity<Paciente> registrar(@RequestBody Paciente p) throws Exception {
 //		return new ResponseEntity<>(servicio.registrar(p), HttpStatus.CREATED);
 //	}
+	//
 
 	@PostMapping
 	public ResponseEntity<PacienteDTO> registrar(@Valid @RequestBody PacienteDTO p) throws Exception {
 		Paciente objeto = mapper.map(p, Paciente.class);
-		Paciente obj = servicio.registrar(objeto);
-
 		PacienteDTO dtoResponse = mapper.map(servicio.registrar(objeto), PacienteDTO.class);
+
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
 				.buildAndExpand(dtoResponse.getIdPaciente()).toUri();
-
 		return ResponseEntity.created(location).build();
 	}
-
 	// ==========================================================================================
 
 //	@PutMapping

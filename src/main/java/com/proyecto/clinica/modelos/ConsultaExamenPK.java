@@ -18,13 +18,13 @@ public class ConsultaExamenPK implements Serializable {
 
 	@ManyToOne
 	@JoinColumn(name = "id_examen", nullable = false)
-	private Analiticas analitica;
+	private Analitica analitica;
 
 	public ConsultaExamenPK() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ConsultaExamenPK(Consulta consulta, Analiticas analitica) {
+	public ConsultaExamenPK(Consulta consulta, Analitica analitica) {
 		super();
 		this.consulta = consulta;
 		this.analitica = analitica;
@@ -38,11 +38,11 @@ public class ConsultaExamenPK implements Serializable {
 		this.consulta = consulta;
 	}
 
-	public Analiticas getAnalitica() {
+	public Analitica getAnalitica() {
 		return analitica;
 	}
 
-	public void setAnalitica(Analiticas analitica) {
+	public void setAnalitica(Analitica analitica) {
 		this.analitica = analitica;
 	}
 

@@ -14,7 +14,7 @@ public class ConsultaExamen {
 	private Consulta consulta;
 
 	@Id
-	private Analiticas analitica;
+	private Analitica analitica;
 
 	public Consulta getConsulta() {
 		return consulta;
@@ -24,11 +24,11 @@ public class ConsultaExamen {
 		this.consulta = consulta;
 	}
 
-	public Analiticas getExamen() {
+	public Analitica getExamen() {
 		return analitica;
 	}
 
-	public void setExamen(Analiticas analitica) {
+	public void setExamen(Analitica analitica) {
 		this.analitica = analitica;
 	}
 

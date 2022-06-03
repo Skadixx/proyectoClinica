@@ -9,7 +9,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "medicos")
-
 public class Medico {
 
 	@Id
@@ -25,7 +24,7 @@ public class Medico {
 	@Column(name = "cedula", nullable = false, length = 12, unique = true)
 	private String cedula;
 
-	@Column(name = "fotoUrl", nullable = true, length = 255)
+	@Column(name = "fotoUrl", nullable = true) // sin el length
 	private String fotoUrl;
 
 	public Medico() {

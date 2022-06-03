@@ -43,7 +43,7 @@ public class ResponseExceptionHandler extends ResponseEntityExceptionHandler {//
 			HttpHeaders headers, HttpStatus status, WebRequest request) {
 		// TODO Auto-generated method stub
 
-		// ex está atrapando las excepciones obetenemos el getbindingresult que devuelve
+		// Es esta atrapando las excepciones obetenemos el getbindingresult que devuelve
 		// un list de errores, entonces abtenemos todos los errores hacemos un streams y
 		// los transformamos el mensaje de stream al mensaje por defecto y los
 		// cancatenamos con
